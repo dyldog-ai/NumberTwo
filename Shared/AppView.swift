@@ -1,21 +1,23 @@
 import SwiftUI
 
-/// Shared UI for NumberTwo, used by both the macOS and iOS app targets.
-///
-/// Presents the native feature hub (`HubView`) which routes to the five
-/// Spanish-learning modes. `HubView` owns its own `NavigationStack`, so the
-/// platform shells only need to size the window.
+/// Shared UI for NumberTwo — a cool-looking random number generator.
+/// Used by both the macOS and iOS app targets.
 struct AppView: View {
+    @StateObject private var generator = RandomGenerator()
+
     var body: some View {
         #if os(macOS)
-        HubView()
-            .frame(minWidth: 520, minHeight: 600)
+        ContentView()
+            .environmentObject(generator)
+            .frame(minWidth: 420, minHeight: 560)
         #else
-        HubView()
+        ContentView()
+            .environmentObject(generator)
         #endif
     }
 }
 
 #Preview {
     AppView()
+        .environmentObject(RandomGenerator())
 }

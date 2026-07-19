@@ -54,7 +54,7 @@ final class RandomGenerator: ObservableObject {
                 }
                 let v = Double.random(in: lo...hi)
                 let spec = "%." + String(max(0, min(decimalPlaces, 10))) + "f"
-                out.append(String(format: spec, v)))
+                out.append(String(format: spec, v))
             case .dice:
                 let sides = max(2, min(diceSides, 1000))
                 out.append(String(Int.random(in: 1...sides)))

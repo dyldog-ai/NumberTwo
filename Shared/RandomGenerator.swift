@@ -64,7 +64,7 @@ final class RandomGenerator: ObservableObject {
                 out.append(UUID().uuidString)
             case .hex:
                 let len = max(1, min(hexLength, 256))
-                out.append((0..<len).map { _ in "0123456789ABCDEF".randomElement()! }.joined())
+                out.append((0..<len).map { _ in String("0123456789ABCDEF".randomElement()!) }.joined())
             }
         }
         results.insert(contentsOf: out, at: 0)

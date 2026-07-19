@@ -52,7 +52,7 @@ struct ContentView: View {
                             .font(.subheadline.weight(.medium))
                             .padding(.horizontal, 14)
                             .padding(.vertical, 8)
-                            .background(gen.mode == m ? gradient : Color.white.opacity(0.08))
+                            .background(gen.mode == m ? AnyView(gradient) : AnyView(Color.white.opacity(0.08)))
                             .foregroundStyle(gen.mode == m ? .white : .white.opacity(0.7))
                             .clipShape(Capsule())
                     }
@@ -104,7 +104,9 @@ struct ContentView: View {
             Text(title).font(.caption).foregroundStyle(.white.opacity(0.5))
             TextField(title, text: text)
                 .textFieldStyle(.plain)
+                #if !os(macOS)
                 .keyboardType(.numberPad)
+                #endif
                 .padding(10)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.08)))
                 .foregroundStyle(.white)

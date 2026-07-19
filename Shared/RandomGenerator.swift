@@ -53,7 +53,8 @@ final class RandomGenerator: ObservableObject {
                     lastError = "Min must be ≤ Max, and both must be numbers."; return
                 }
                 let v = Double.random(in: lo...hi)
-                out.append(String(format: "%.\(max(0, min(decimalPlaces, 10))f", v)))
+                let spec = "%." + String(max(0, min(decimalPlaces, 10))) + "f"
+                out.append(String(format: spec, v)))
             case .dice:
                 let sides = max(2, min(diceSides, 1000))
                 out.append(String(Int.random(in: 1...sides)))

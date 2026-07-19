@@ -22,7 +22,7 @@ public final class SpeechSynthesizer: ObservableObject {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "es-ES")
             ?? AVSpeechSynthesisVoice(language: "es-MX")
-        utterance.rate = AVSpeechUtterance.defaultRate * 0.9
+        utterance.rate = 0.5 * 0.9
         utterance.pitchMultiplier = 1.0
         synth.stopSpeaking(at: .immediate)
         synth.speak(utterance)

@@ -1,0 +1,28 @@
+# Xcode
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+project.xcworkspace/
+*.moved-aside
+*.hmap
+*.ipa
+*.xcarchive
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+Package.pins
+Package.resolved
+xcuserdata/
+
+# macOS
+.DS_Store
+
+# Build artifacts / logs
+*.log

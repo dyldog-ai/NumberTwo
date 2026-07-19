@@ -1,0 +1,64 @@
+name: NumberTwo
+options:
+  bundleIdPrefix: com.dyldog
+  deploymentTarget:
+    macOS: "13.0"
+    iOS: "16.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+# Both the macOS and iOS apps share a single codebase (Shared), so there
+# is no Swift package dependency to resolve — the previously-failing
+# apple/apple-argument-parser dependency is gone entirely, and CI no longer needs
+# any GitHub auth to clone packages.
+
+targets:
+  NumberTwo:
+    type: application
+    platform: macOS
+    sources:
+      - path: Shared
+      - path: MacApp
+        excludes:
+          - "Info.plist"
+          - "NumberTwo.entitlements"
+    dependencies: []
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dyldog.NumberTwo
+        PRODUCT_NAME: NumberTwo
+        INFOPLIST_FILE: MacApp/Info.plist
+        CODE_SIGN_ENTITLEMENTS: MacApp/NumberTwo.entitlements
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        GENERATE_INFOPLIST_FILE: "NO"
+        ENABLE_HARDENED_RUNTIME: "YES"
+        CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME: AccentColor
+
+  NumberTwo-iOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: Shared
+      - path: iOSApp
+        excludes:
+          - "Info.plist"
+          - "NumberTwo.entitlements"
+    dependencies: []
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dyldog.NumberTwo
+        PRODUCT_NAME: NumberTwo
+        INFOPLIST_FILE: iOSApp/Info.plist
+        CODE_SIGN_ENTITLEMENTS: iOSApp/NumberTwo.entitlements
+        SWIFT_VERSION: "5.9"
+        IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+        GENERATE_INFOPLIST_FILE: "NO"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGNING_REQUIRED: "NO"
+        CODE_SIGNING_ALLOWED: "NO"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME: AccentColor

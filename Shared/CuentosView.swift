@@ -21,7 +21,7 @@ public struct CuentosView: View {
     @ViewBuilder
     private var content: some View {
         if SeedData.stories.isEmpty {
-            FeatureEmptyState("No stories",
+            FeatureEmptyState(title: "No stories",
                 systemImage: "book",
                 description: "Add stories to SeedData.stories to begin.")
         } else {

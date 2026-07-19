@@ -41,8 +41,8 @@ public struct ConjugadorView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 HStack(spacing: 12) {
-                    Pill(question.tense.label)
-                    Pill(question.person.label)
+                    Pill(text: question.tense.label)
+                    Pill(text: question.person.label)
                 }
             }
             .padding()

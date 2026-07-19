@@ -26,7 +26,7 @@ public struct HubView: View {
             }
             .navigationTitle("NumberTwo")
             .inlineTitle()
-            .navigationDestination(item: $selection) { idea in
+            .navigationDestination(for: Idea.self) { idea in
                 destination(for: idea)
             }
         }

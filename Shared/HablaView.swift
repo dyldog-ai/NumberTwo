@@ -25,7 +25,7 @@ public struct HablaView: View {
     @ViewBuilder
     private var content: some View {
         if SeedData.scenarios.isEmpty {
-            FeatureEmptyState("No scenarios",
+            FeatureEmptyState(title: "No scenarios",
                 systemImage: "bubble.left.and.bubble.right",
                 description: "Add scenarios to SeedData.scenarios to begin.")
         } else {

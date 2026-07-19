@@ -48,8 +48,8 @@ public struct LingoBoxView: View {
     }
 
     private var emptyState: some View {
-        FeatureEmptyState("No flashcards yet",
-            systemImage: "rectangle.stack",
+        FeatureEmptyState(title: "No flashcards yet",
+                systemImage: "rectangle.stack",
             description: "Add cards to SeedData.flashcards to begin.")
     }
 
